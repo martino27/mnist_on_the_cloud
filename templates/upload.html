@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Number Detection API</title>
+    <title>Digit Detection API</title>
     <script language="javascript" type="text/javascript">
       function WaitDisplay() {
         target = document.getElementById("result");
@@ -18,7 +18,7 @@
 
     {% from "_formhelpers.html" import render_field %}
 
-    <h1>Number Detection API</h1>
+    <h1>Digit Detection API</h1>
     <h3>Upload a photo file.</h3>
     <div>
         <form id="upload" action={{ url_for('post') }} enctype='multipart/form-data' method='POST'>
@@ -31,7 +31,7 @@
 
     <div id="result">
         {% if result|length > 0 %}
-        <h1>The result of handwritten number detection: {{ result['detectNum'] }}</h1>
+        <h1>The result of handwritten digit detection: {{ result['detectNum'] }}</h1>
         {% endif %}
     </div>
     <div id="loading" style="display:none">
