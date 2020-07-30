@@ -2,10 +2,10 @@
 # This tags and uploads an image to Docker Hub
 
 #Assumes this is built
-#docker build --tag=tictactoeserver .
+#docker build --tag=mnistserver .
 
 
-#dockerpath=""
+dockerpath="shawana27/mnistserver"
 
 # Authenticate & Tag
 echo "Docker ID and Image: $dockerpath"
