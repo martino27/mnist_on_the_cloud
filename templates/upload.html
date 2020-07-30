@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flask网页上传图片演示</title>
+    <script language="javascript" type="text/javascript">
+      function WaitDisplay() {
+        target = document.getElementById("result");
+        target.style.display="none";
+        target = document.getElementById("loading");
+        target.style.display="";
+        setTimeout(function() {
+          document.getElementById("upload").submit();}, 100);
+        }
+    </script>
+</head>
+<body>
+
+    {% from "_formhelpers.html" import render_field %}
+
+    <h1>Number Detection API</h1>
+    <h3>Upload a photo file.</h3>
+    <div>
+        <form id="upload" action={{ url_for('post') }} enctype='multipart/form-data' method='POST'>
+            {{ render_field(photo_form.input_photo) }}
+            <input type="button" onclick="WaitDisplay();" value="上传" class="button-new" style="margin-top:15px;"/>
+        </form>
+    </div>
+
+    <hr>
+
+    <div id="result">
+        {% if result|length > 0 %}
+        <h1>手写数字预测结果为：{{ result['detectNum'] }}</h1>
+        {% endif %}
+    </div>
+    <div id="loading" style="display:none">
+        <h2>Detecting...</h2>
+    </div>
+
+</body>
+</html>
+<!--10.1.12.47:5000-->
