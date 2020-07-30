@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Flask网页上传图片演示</title>
+    <title>Number Detection API</title>
     <script language="javascript" type="text/javascript">
       function WaitDisplay() {
         target = document.getElementById("result");
@@ -23,7 +23,7 @@
     <div>
         <form id="upload" action={{ url_for('post') }} enctype='multipart/form-data' method='POST'>
             {{ render_field(photo_form.input_photo) }}
-            <input type="button" onclick="WaitDisplay();" value="上传" class="button-new" style="margin-top:15px;"/>
+            <input type="button" onclick="WaitDisplay();" value="upload" class="button-new" style="margin-top:15px;"/>
         </form>
     </div>
 
@@ -31,7 +31,7 @@
 
     <div id="result">
         {% if result|length > 0 %}
-        <h1>手写数字预测结果为：{{ result['detectNum'] }}</h1>
+        <h1>The result of handwritten number detection: {{ result['detectNum'] }}</h1>
         {% endif %}
     </div>
     <div id="loading" style="display:none">

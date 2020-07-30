@@ -43,7 +43,7 @@ def encode_image(image):
     image_buffer = io.BytesIO()
     image.save(image_buffer, format='PNG')
     imgstr = 'data:image/png;base64,{:s}'.format(
-        base64.b64encode(image_buffer.getValue()).decode.replace("'", "")
+        base64.b64encode(image_buffer.getvalue()).decode().replace("'", "")
     )
     return imgstr
 
@@ -110,10 +110,11 @@ def upload():
 def post():
     form = PhotoForm(CombinedMultiDict((request.files, request.form)))
     if request.method == 'POST' and form.validate():
-        with tempfile.NamedTemporaryFile() as temp:
+        with tempfile.NamedTemporaryFile(delete=False) as temp:
             form.input_photo.data.save(temp)
             temp.flush()
             result = detect_num(temp.name)
+            temp.close()
 
         photo_form = PhotoForm(request.form)
         return render_template('upload.html',
