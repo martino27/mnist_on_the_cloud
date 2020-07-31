@@ -5,9 +5,6 @@ WORKDIR /app
 
 # Copy source code to working directory
 COPY . /app/
-RUN mkdir /app/templates
-COPY templates/upload.html /app/templates/
-COPY templates/_formhelpers.html /app/templates/
 
 # Install packages from requirements.txt
 RUN pip install --upgrade pip &&\
