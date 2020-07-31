@@ -7,4 +7,4 @@ docker build --tag=mnistserver .
 docker image ls
 
 # Run flask app
-docker run -p 8848:8848 mnistserver
+docker run -p 8080:8080 mnistserver
