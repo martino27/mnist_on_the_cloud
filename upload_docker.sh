@@ -10,7 +10,7 @@ dockerpath="shawana27/mnistserver"
 # Authenticate & Tag
 echo "Docker ID and Image: $dockerpath"
 docker login &&\
-    docker image tag tictactoeserver $dockerpath
+    docker image tag mnistserver $dockerpath
 
 # Push Image
 docker image push $dockerpath
