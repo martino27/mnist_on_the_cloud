@@ -2,7 +2,7 @@ Flask==1.1.2
 tensorflow==1.15.2
 matplotlib==3.2.2
 numpy==1.18.5
-pillow==7.1.2
+pillow==8.2.0
 WTForms==2.2.1
 Flask_WTF==0.14.3
 Werkzeug==0.16.0
